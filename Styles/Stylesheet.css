@@ -1,0 +1,16 @@
+#header{
+    background-color: red;
+    height :50px;
+}
+#content{
+    background-color: yellow;
+     
+}
+footer{
+    background-color: blue;
+     height :50px; 
+}
+table tr td{
+   border: 1px solid black;
+    
+}
