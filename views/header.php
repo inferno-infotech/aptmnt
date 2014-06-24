@@ -33,7 +33,14 @@
             $(document).ready(function(){
             $("#level1login").submit(function(){
              $.post('level_1/adduser', $('#level1login').serialize(), function(data) {
-               
+               $("#level1table").append(data);
+               $("#name").val("");
+               $("#description").val("");
+              $("#username").val("");
+              $("#password").val("");
+              $("#email").val("");
+              $("#phonenumber").val("");
+              $("#inputlevel").val("2");
               
                 });
                         return false;
@@ -50,6 +57,94 @@
 
     
        
+   
+   function deleting($id)
+{
+     posta="level_1/delete/"+$id;
+     deletea="#"+$id;
+     $(document).ready(function(){
+    
+      $.post(posta, $("#level1login").serialize(), function(data) {
+       $(deletea).remove();
+       
+      
+       
+
+                    });
+     
+    });
+        
+}
+   
+   
+   
+   function update($id)
+{
+     
+     
+     var nameupdate="#name"+"-"+$id;
+     var descriptionupdate="#description"+"-"+$id;
+     var usernameupdate="#username"+"-"+$id;
+     var passwordupdate="#password"+"-"+$id;   
+     var inputlevelupdate="#level"+"-"+$id;    
+    var emailupdate="#email"+"-"+$id;
+    var phoneupdate="#phonenumber"+"-"+$id;
+    var update="<input type='button' name='update' value='update' id='updatetable' onclick='updatesecond("+$id+");'/>" ;
+     $(document).ready(function(){
+     $("#updatetable").remove();
+     $("#description").val($(descriptionupdate).html());
+     $("#name").val($(nameupdate).html());
+     $("#username").val($(usernameupdate).html());
+     $("#password").val($(passwordupdate).html());
+     $("#inputlevel").val($(inputlevelupdate).html());
+     $("#email").val($(emailupdate).html());
+     $("#phonenumber").val($(phoneupdate).html());
+     $("#submitolevel1").remove();
+     
+     $("#level1login").append(update);
+     
+    });
+        
+}  
+
+function updatesecond($id)
+{
+   var nameupdate="#name"+"-"+$id;
+     var descriptionupdate="#description"+"-"+$id;
+     var usernameupdate="#username"+"-"+$id;
+     var passwordupdate="#password"+"-"+$id;   
+     var inputlevelupdate="#level"+"-"+$id;    
+    var emailupdate="#email"+"-"+$id;
+    var phoneupdate="#phonenumber"+"-"+$id;
+    var posta="level_1/update/"+$id;
+    $(document).ready(function(){
+     $.post(posta, $('#level1login').serialize(), function(data) {
+      
+      
+      $(nameupdate).html($("#name").val()); 
+      $(descriptionupdate).html($("#description").val()); 
+      $(usernameupdate).html($("#username").val());
+      $(passwordupdate).html($("#password").val());
+      $(inputlevelupdate).html($("#inputlevel").val());
+      $(emailupdate).html($("#email").val()); 
+     $(phoneupdate).html($("#phonenumber").val());
+      $("#updatetable").remove();
+      $("#level1login").append("<label></label><input type='submit' id='submitolevel1'  />");
+      $("#name").val("");
+     $("#description").val("");
+     $("#username").val("");
+     $("#password").val("");
+     $("#inputlevel").val("2");
+     $("#email").val("");
+     $("#phonenumber").val("");
+     
+
+                    });   
+    });
+    
+}
+
+   
    
 
         

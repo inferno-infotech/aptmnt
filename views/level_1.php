@@ -8,7 +8,7 @@
      
      
       <label>Select Levels:</label>
-    <select name="inputlevel">
+    <select name="inputlevel" id="inputlevel">
         <option value=2>Level 2</option>
         <option value=3>Level 3</option>
         <option value=4>Level 4</option>

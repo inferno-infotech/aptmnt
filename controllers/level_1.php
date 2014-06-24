@@ -20,11 +20,20 @@ class Level_1 extends Controller {
     {
       $this->model->adduser();  
     }
-      function listuser()
+     
+    function listuser()
     {
       $this->model->listuser();  
     }
     
-   
+   function delete($id)
+    {
+      $this->model->delete($id);  
+    }
+    function update($id)
+    {
+         $this->model->update($id);
+    }
+    
 }
 ?>
