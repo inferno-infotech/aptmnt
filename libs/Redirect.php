@@ -7,15 +7,18 @@ class Redirect {
         
         $url = rtrim($url, '/');
         
+        
         $url = explode('/', $url);
         //print_r($url);
         if (empty($url[0])) {
-            require 'controllers/index.php';
-            $controller = new Index();
+            require 'controllers/login.php';
+            $controller = new Login();
             $controller->index();
             return FALSE;
         }
+       
         $file = 'controllers/' . $url[0] . '.php';
+        
         if (file_exists($file)) {
             require $file;
              $controller = new $url[0]();

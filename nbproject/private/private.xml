@@ -3,31 +3,23 @@
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
-            <file>file:/C:/xampp/htdocs/aptmnt/config/database.php</file>
-            <file>file:/C:/xampp/htdocs/aptmnt/libs/Bootstrap.php</file>
-            <file>file:/C:/xampp/htdocs/aptmnt/views/login/index.php</file>
-            <file>file:/C:/xampp/htdocs/aptmnt/models/login_model.php</file>
-            <file>file:/C:/xampp/htdocs/aptmnt/index.php</file>
-            <file>file:/C:/xampp/htdocs/aptmnt/views/header.php</file>
-            <file>file:/C:/xampp/htdocs/aptmnt/js/jquery.min.js</file>
-            <file>file:/C:/xampp/htdocs/aptmnt/views/footer.php</file>
-            <file>file:/C:/xampp/htdocs/aptmnt/models/index_model.php</file>
-            <file>file:/C:/xampp/htdocs/aptmnt/libs/Database.php</file>
-            <file>file:/C:/xampp/htdocs/aptmnt/controllers/error.php</file>
-            <file>file:/C:/xampp/htdocs/aptmnt/Styles/Stylesheet.css</file>
-            <file>file:/C:/xampp/htdocs/aptmnt/js/bic_calendar.js</file>
-            <file>file:/C:/xampp/htdocs/aptmnt/controllers/index.php</file>
-            <file>file:/C:/xampp/htdocs/aptmnt/controllers/login.php</file>
-            <file>file:/C:/xampp/htdocs/aptmnt/models/help_model.php</file>
-            <file>file:/C:/xampp/htdocs/aptmnt/views/index/index.php</file>
-            <file>file:/C:/xampp/htdocs/aptmnt/.htaccess</file>
-            <file>file:/C:/xampp/htdocs/aptmnt/libs/Model.php</file>
-            <file>file:/C:/xampp/htdocs/aptmnt/controllers/help.php</file>
-            <file>file:/C:/xampp/htdocs/aptmnt/config/paths.php</file>
-            <file>file:/C:/xampp/htdocs/aptmnt/views/help/index.php</file>
-            <file>file:/C:/xampp/htdocs/aptmnt/views/error/index.php</file>
-            <file>file:/C:/xampp/htdocs/aptmnt/libs/View.php</file>
-            <file>file:/C:/xampp/htdocs/aptmnt/libs/Controller.php</file>
+            <file>file:/C:/xampp/htdocs/appointment/controllers/login.php</file>
+            <file>file:/C:/xampp/htdocs/appointment/views/login.php</file>
+            <file>file:/C:/xampp/htdocs/appointment/index.php</file>
+            <file>file:/C:/xampp/htdocs/appointment/libs/Controller.php</file>
+            <file>file:/C:/xampp/htdocs/appointment/controllers/level_1.php</file>
+            <file>file:/C:/xampp/htdocs/appointment/config/database.php</file>
+            <file>file:/C:/xampp/htdocs/appointment/libs/Database.php</file>
+            <file>file:/C:/xampp/htdocs/appointment/controllers/level_2.php</file>
+            <file>file:/C:/xampp/htdocs/appointment/views/footer.php</file>
+            <file>file:/C:/xampp/htdocs/appointment/libs/Model.php</file>
+            <file>file:/C:/xampp/htdocs/appointment/models/login_model.php</file>
+            <file>file:/C:/xampp/htdocs/appointment/libs/View.php</file>
+            <file>file:/C:/xampp/htdocs/appointment/views/level_1.php</file>
+            <file>file:/C:/xampp/htdocs/appointment/.htaccess</file>
+            <file>file:/C:/xampp/htdocs/appointment/libs/Redirect.php</file>
+            <file>file:/C:/xampp/htdocs/appointment/views/header.php</file>
+            <file>file:/C:/xampp/htdocs/appointment/config/paths.php</file>
         </group>
     </open-files>
 </project-private>

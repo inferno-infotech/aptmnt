@@ -1,1 +1,1 @@
-<?php define('BASE_URL','http://localhost/appointment/'); ?> 
+<?php define('BASE_URL','http://localhost/appointment/'); 

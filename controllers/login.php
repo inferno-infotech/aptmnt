@@ -10,25 +10,13 @@ class Login extends Controller {
     {
    
       
-      $this->view->render('login/index');
+      $this->view->render('login');
     }
-    function initiate()
+    function userpassword()
     {
-      $this->model->initiate();  
+      $this->model->userpassword();  
     }
     
-    function run()
-    {
-        
-        $this->model->run();
-    }
-    function delete($id)
-    {
-      $this->model->delete($id);  
-    }
-    function update($id)
-    {
-         $this->model->update($id);
-    }
+   
     
 }
