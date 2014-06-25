@@ -11,16 +11,15 @@
         $(document).ready(function(){
             $("#login").submit(function(){
                $.post('login/userpassword', $('#login').serialize(), function(data) {
-                 
-                
-                  if(data==1)
+                 data1=data.split("/");
+                  loadvalues(data1[1]);
+                  if(data1[0]==1)
                       window.location.href = "http://localhost/appointment/level_1";
-                  if(data==2)
+                  if(data1[0]==2)
                       window.location.href = "http://localhost/appointment/level_2";
-                  if(data==3)
+                  if(data1[0]==3)
                       window.location.href = "http://localhost/appointment/level_3";
-                  if(data==4)
-                      window.location.href = "http://localhost/appointment/level_4";
+                  
                   
                     });
                     return false;
@@ -144,7 +143,254 @@ function updatesecond($id)
     
 }
 
+ 
+ function loadvalues(values)
+ {
+     $("#level1").ready(function(){
+        alert('Welcome user '+values);
+        
+     });
+     
+ }
+ 
+ 
+      $(document).ready(function(){
+   $.get("level_2/listuser",function(data){
+     $("#level2table").append(data);
+   }); 
+});
+ 
+ 
+ $(document).ready(function(){
+            $("#level2login").submit(function(){
+             $.post('level_2/adduser', $('#level2login').serialize(), function(data) {
+               $("#level2table").append(data);
+               $("#name2").val("");
+               $("#description2").val("");
+              $("#username2").val("");
+              $("#password2").val("");
+              $("#email2").val("");
+              $("#phonenumber2").val("");
+              $("#inputlevel2").val("3");
+              
+                });
+                        return false;
+                });
+
+            });
+            
+ 
+ 
+   function deleting2($id)
+{
+     posta="level_2/delete2/"+$id;
+     deletea="#"+$id;
+     $(document).ready(function(){
+    
+      $.post(posta, $("#level2login").serialize(), function(data) {
+       $(deletea).remove();
+       
+      
+       
+
+                    });
+     
+    });
+        
+}
    
+ 
+ 
+ 
+ function update2($id)
+{
+     
+     
+     var nameupdate="#name"+"-"+$id;
+     var descriptionupdate="#description"+"-"+$id;
+     var usernameupdate="#username"+"-"+$id;
+     var passwordupdate="#password"+"-"+$id;   
+     var inputlevelupdate="#level"+"-"+$id;    
+    var emailupdate="#email"+"-"+$id;
+    var phoneupdate="#phonenumber"+"-"+$id;
+    var update="<input type='button' name='update' value='update' id='updatetable2' onclick='updatesecond2("+$id+");'/>" ;
+     $(document).ready(function(){
+     $("#updatetable2").remove();
+     $("#description2").val($(descriptionupdate).html());
+     $("#name2").val($(nameupdate).html());
+     $("#username2").val($(usernameupdate).html());
+     $("#password2").val($(passwordupdate).html());
+     $("#inputlevel2").val($(inputlevelupdate).html());
+     $("#email2").val($(emailupdate).html());
+     $("#phonenumber2").val($(phoneupdate).html());
+     $("#submitolevel2").remove();
+     
+     $("#level2login").append(update);
+     
+    });
+        
+}  
+
+function updatesecond2($id)
+{
+   var nameupdate="#name"+"-"+$id;
+     var descriptionupdate="#description"+"-"+$id;
+     var usernameupdate="#username"+"-"+$id;
+     var passwordupdate="#password"+"-"+$id;   
+     var inputlevelupdate="#level"+"-"+$id;    
+    var emailupdate="#email"+"-"+$id;
+    var phoneupdate="#phonenumber"+"-"+$id;
+    var posta="level_2/update2/"+$id;
+    $(document).ready(function(){
+     $.post(posta, $('#level2login').serialize(), function(data) {
+      
+      
+      $(nameupdate).html($("#name2").val()); 
+      $(descriptionupdate).html($("#description2").val()); 
+      $(usernameupdate).html($("#username2").val());
+      $(passwordupdate).html($("#password2").val());
+      $(inputlevelupdate).html($("#inputlevel2").val());
+      $(emailupdate).html($("#email2").val()); 
+     $(phoneupdate).html($("#phonenumber2").val());
+      $("#updatetable2").remove();
+      $("#level2login").append("<label></label><input type='submit' id='submitolevel2'  />");
+      $("#name2").val("");
+     $("#description2").val("");
+     $("#username2").val("");
+     $("#password2").val("");
+     $("#inputlevel2").val("2");
+     $("#email2").val("");
+     $("#phonenumber2").val("");
+     
+
+                    });   
+    });
+    
+}
+
+ 
+ 
+  $(document).ready(function(){
+   $.get("level_3/listuser",function(data){
+     $("#level3table").append(data);
+   }); 
+});
+ 
+ 
+ $(document).ready(function(){
+            $("#level3login").submit(function(){
+             $.post('level_3/adduser', $('#level3login').serialize(), function(data) {
+               $("#level3table").append(data);
+               $("#name3").val("");
+               $("#description3").val("");
+              $("#username3").val("");
+              $("#password3").val("");
+              $("#email3").val("");
+              $("#phonenumber3").val("");
+              $("#inputlevel3").val("4");
+              
+                });
+                        return false;
+                });
+
+            });
+            
+ 
+ function deleting3($id)
+{
+     posta="level_3/delete3/"+$id;
+     deletea="#"+$id;
+     $(document).ready(function(){
+    
+      $.post(posta, $("#level3login").serialize(), function(data) {
+       $(deletea).remove();
+       
+      
+       
+
+                    });
+     
+    });
+        
+} 
+ 
+ 
+ function update3($id)
+{
+     
+     
+     var nameupdate="#name"+"-"+$id;
+     var descriptionupdate="#description"+"-"+$id;
+     var usernameupdate="#username"+"-"+$id;
+     var passwordupdate="#password"+"-"+$id;   
+     var inputlevelupdate="#level"+"-"+$id;    
+    var emailupdate="#email"+"-"+$id;
+    var phoneupdate="#phonenumber"+"-"+$id;
+    var update="<input type='button' name='update' value='update' id='updatetable3' onclick='updatesecond3("+$id+");'/>" ;
+     $(document).ready(function(){
+     $("#updatetable3").remove();
+     $("#description3").val($(descriptionupdate).html());
+     $("#name3").val($(nameupdate).html());
+     $("#username3").val($(usernameupdate).html());
+     $("#password3").val($(passwordupdate).html());
+     $("#inputlevel3").val($(inputlevelupdate).html());
+     $("#email3").val($(emailupdate).html());
+     $("#phonenumber3").val($(phoneupdate).html());
+     $("#submitolevel3").remove();
+     
+     $("#level3login").append(update);
+     
+    });
+        
+}  
+
+function updatesecond3($id)
+{
+   var nameupdate="#name"+"-"+$id;
+     var descriptionupdate="#description"+"-"+$id;
+     var usernameupdate="#username"+"-"+$id;
+     var passwordupdate="#password"+"-"+$id;   
+     var inputlevelupdate="#level"+"-"+$id;    
+    var emailupdate="#email"+"-"+$id;
+    var phoneupdate="#phonenumber"+"-"+$id;
+    var posta="level_3/update3/"+$id;
+    $(document).ready(function(){
+     $.post(posta, $('#level3login').serialize(), function(data) {
+      
+      
+      $(nameupdate).html($("#name3").val()); 
+      $(descriptionupdate).html($("#description3").val()); 
+      $(usernameupdate).html($("#username3").val());
+      $(passwordupdate).html($("#password3").val());
+      $(inputlevelupdate).html($("#inputlevel3").val());
+      $(emailupdate).html($("#email3").val()); 
+     $(phoneupdate).html($("#phonenumber3").val());
+      $("#updatetable3").remove();
+      $("#level3login").append("<label></label><input type='submit' id='submitolevel3'  />");
+      $("#name3").val("");
+     $("#description3").val("");
+     $("#username3").val("");
+     $("#password3").val("");
+     $("#inputlevel3").val("4");
+     $("#email3").val("");
+     $("#phonenumber3").val("");
+     
+
+                    });   
+    });
+    
+}
+
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
    
 
         

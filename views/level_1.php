@@ -1,5 +1,5 @@
 <div id="level1"> 
-<h1>Please add user details.</h1>
+<h1 id="level1heading">Please add user details.</h1>
  <form id='level1login'>
      <label>Name: &nbsp;&nbsp;</label>&nbsp;&nbsp;&nbsp;<input type='text' name='name' id="name" /><br/><br />
      <label>Description: &nbsp;&nbsp;</label>&nbsp;&nbsp;&nbsp;<input type='text' name='description' id="description" /><br/><br />
