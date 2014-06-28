@@ -7,12 +7,28 @@
         <script src="<?php echo BASE_URL;?>js/bic_calendar.js"></script>
         <script src="<?php echo BASE_URL;?>js/bic_calendar.min.js"></script>
         <script src="<?php echo BASE_URL;?>js/jquery.session.js"></script>
+        
+       
+    
+    
+        
         <script type="text/javascript">
         $(document).ready(function(){
+            
+            
+              
+            
+            
             $("#login").submit(function(){
+             var email123=$("#email123").val();
+           var pass1=verifyemail(email123);
+             var password123=$("#password123").val();
+            var pass2=verifypass(password123);
+            if(pass1==true && pass2==true)
+            {
                $.post('login/userpassword', $('#login').serialize(), function(data) {
                  data1=data.split("/");
-                  loadvalues(data1[1]);
+                  
                   if(data1[0]==1)
                       window.location.href = "http://localhost/appointment/level_1";
                   if(data1[0]==2)
@@ -21,13 +37,13 @@
                       window.location.href = "http://localhost/appointment/level_3";
                   
                   
-                    });
+                    });}
                     return false;
                 });
 
             });
             
-            
+    
             
             $(document).ready(function(){
             $("#level1login").submit(function(){
@@ -385,14 +401,48 @@ function updatesecond3($id)
  
  
  
+ function verifyemail(emailverify)
+ {
+     var bool=true;
+        if(emailverify.length==0)
+     {
+        $("#emailcheck").html(" #Email can't be empty"); 
+        bool = false;
+     }
+//     for(var i=0;i<emailverify.length;i++)
+//     {
+//         if(emailverify.charAt(i)=="@")
+//         { $("#emailcheck").html(" #Invalid email");
+//            bool=false;   }
+//     }
+//     
+    return bool; 
+     
+ }
+ 
+ function verifypass(passverify)
+ {
+     var bool=true;
+     if(passverify.length==0)
+     {
+        $("#passwordcheck").html(" #Password can't be empty"); 
+        bool=false;
+     }
+     
+     return bool;
+ }
  
  
  
  
- 
- 
-   
-
+        
+        
+       
+     
+        
+        
+        
+        
         
         </script>
         

@@ -73,6 +73,15 @@ table tr td{
     background: #f0f0f0 ;
 }
 
+#emailcheck
+{
+    color:red;
+}
+#passwordcheck
+{
+    color:red;
+}
+
 
 
 
