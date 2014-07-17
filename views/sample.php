@@ -22,7 +22,11 @@
     <script src="src/Plugins/jquery.calendar.js" type="text/javascript"></script>   
     
     <script type="text/javascript">
-        $(document).ready(function() {     
+        
+        var val=0;
+        $(document).ready(function() {  
+        var url='';
+        
            var view="week";          
            
             var DATA_FEED_URL = "php/datafeed.php";
@@ -180,9 +184,19 @@
             
             //Add a new event
             $("#faddbtn").click(function(e) {
-                var url ="login";
-                OpenModelWindow(url,{ width: 500, height: 400, caption: "Create New Calendar"});
+            val++;    
+            url ="appointmentslots";
+            
+            
+                $("#slide").slideUp("slow",function(){
+                val++;
+                });
+                OpenModelWindow(url,{ width: screen.availWidth-500, height: screen.availHeight, caption: "Create Slots"});
             });
+            
+            
+            
+            
             //go to today
             $("#showtodaybtn").click(function(e) {
                 var p = $("#gridcontainer").gotoDate().BcalGetOp();
@@ -209,8 +223,19 @@
             });
             
         });
-        
-        
+       
+        $(document).click(function(){
+       
+        if(url="appointmentform")
+        {
+      $("#gridcontainer").reload();
+            if(val>1)
+     { $("#slide").slideDown("slow");
+      val=0;
+  }
+       
+        }
+});
        
         
         
@@ -218,7 +243,7 @@
     </script>    
 </head>
 <body>
-    <div>
+    <div id="slide">
 
       <div id="calhead" style="padding-left:1px;padding-right:1px;">          
             <div class="cHead"><div class="ftitle">My Calendar</div>

@@ -16,15 +16,22 @@ class Level_1 extends Controller {
    
     
     
-     function adduser()
+     function adduser($level)
     {
-      $this->model->adduser();  
+      $this->model->adduser($level);  
     }
      
     function listuser()
     {
       $this->model->listuser();  
     }
+    
+    
+    function listuserlevel($level)
+    {
+       $this->model->listuserlevel($level);   
+    }
+    
     
    function delete($id)
     {

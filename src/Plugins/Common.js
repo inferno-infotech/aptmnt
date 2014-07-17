@@ -54,6 +54,10 @@ function CloseModelWindow(callback, dooptioncallback) {
 }
 
 
+
+
+
+
 function StrFormat(temp, dataarry) {
     return temp.replace(/\{([\d]+)\}/g, function(s1, s2) { var s = dataarry[s2]; if (typeof (s) != "undefined") { if (s instanceof (Date)) { return s.getTimezoneOffset() } else { return encodeURIComponent(s) } } else { return "" } });
 }
