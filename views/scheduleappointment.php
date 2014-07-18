@@ -8,8 +8,8 @@
  <h4>Create Appointment</h4><br/>
  <form id="scheduleappointmentform">
      <label>Title:</label>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<input type="text" name="titleappointmentcustomer" id="titleappointmentcustomer" /><br />    
-     <label>Date:</label>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<label id="datelabel"></label><br /> 
-     <label>Time:</label>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<label id="starttimelabel"></label><label id="dash"></label><label id="endtimelabel"></label><br /> 
+     <div id="checkboxone"></div><br /> 
+     <div id="checkboxtwo"></div><br />
      <label>Location:</label>&nbsp;&nbsp;<input type="text" name="locationappointmentcustomer" id="locationappointmentcustomer" /><br /> 
  <h4>Customer</h4><br/>
  <label>Customer Email:</label>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<input type="text" name="customeremail" id="customeremail" /><br />    

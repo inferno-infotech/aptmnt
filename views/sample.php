@@ -1,16 +1,22 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml">
-<head id="Head1">
+
+   
+    <head id="Head1">
     <title>	My Calendar </title>
     <meta http-equiv="Content-Type" content="text/html;charset=UTF-8">
+        
     <link href="css/dailog.css" rel="stylesheet" type="text/css" />
     <link href="css/calendar.css" rel="stylesheet" type="text/css" /> 
     <link href="css/dp.css" rel="stylesheet" type="text/css" />   
     <link href="css/alert.css" rel="stylesheet" type="text/css" /> 
     <link href="css/main.css" rel="stylesheet" type="text/css" /> 
+    <link href="css/jquery.toastmessage.css" rel="stylesheet" type="text/css" /> 
     
 
-    <script src="src/jquery.js" type="text/javascript"></script>  
+    <script src="src/jquery.js" type="text/javascript"></script> 
+    <script src="src/jquery.toastmessage.js" type="text/javascript"></script> 
+     
     
     <script src="src/Plugins/Common.js" type="text/javascript"></script>    
     <script src="src/Plugins/datepicker_lang_US.js" type="text/javascript"></script>     
@@ -20,12 +26,41 @@
     <script src="src/Plugins/jquery.ifrmdailog.js" defer="defer" type="text/javascript"></script>
     <script src="src/Plugins/wdCalendar_lang_US.js" type="text/javascript"></script>    
     <script src="src/Plugins/jquery.calendar.js" type="text/javascript"></script>   
-    
+   
     <script type="text/javascript">
-        
-        var val=0;
+      
+      
+   
+    
+    
+    
+    
+    
+    
+    var val=0;
         $(document).ready(function() {  
-        var url='';
+       
+       
+       
+    $user="<?php echo $_GET['user'];?>";
+      
+    
+    if($user=="leads")
+       {
+        var url="scheduleappointment";
+        $("#one").show();
+               
+        $.get('sample/loaduser',function(data){
+              
+           });
+       }
+       else
+       {
+        url="appointmentslots";   
+        $("#one").hide();
+       }
+       
+       
         
            var view="week";          
            
@@ -185,13 +220,13 @@
             //Add a new event
             $("#faddbtn").click(function(e) {
             val++;    
-            url ="appointmentslots";
+            
             
             
                 $("#slide").slideUp("slow",function(){
                 val++;
                 });
-                OpenModelWindow(url,{ width: screen.availWidth-500, height: screen.availHeight, caption: "Create Slots"});
+                OpenModelWindow(url,{ width: screen.availWidth-300, height: screen.availHeight, caption: "Create Slots"});
             });
             
             
@@ -295,7 +330,7 @@
                     </div>
             </div>
             
-            <div class="clear"></div>
+            <div id="one"> <span style="float: right;" class="description">!Please check appointment slots</span> </div>
             </div>
       </div>
       <div style="padding:1px;">

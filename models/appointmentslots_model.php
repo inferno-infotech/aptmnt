@@ -136,8 +136,8 @@ if(preg_match('@(\d+)/(\d+)/(\d+)\s+(\d+):(\d+)@', $endtime, $matches)==1){
 
 
 $query11="INSERT INTO jqcalendar ".
-       "(StartTime,EndTime) ".
-       "VALUES('$starttime','$endtime')";
+       "(Subject,StartTime,EndTime,Color,color_status,flag) ".
+       "VALUES('Available Slots','$starttime','$endtime','4','1','1')";
 
 
 

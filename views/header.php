@@ -123,13 +123,15 @@
             {
                $.post('login/userpassword', $('#login').serialize(), function(data) {
                  data1=data.split("/");
-                  
+                  alert(data1[0]);
                   if(data1[0]==1)
                       window.location.href = "http://localhost/appointment/level_1?username="+data1[1];
                   if(data1[0]==2)
                       window.location.href = "http://localhost/appointment/level_2";
                   if(data1[0]==3)
                       window.location.href = "http://localhost/appointment/level_3";
+                  if(data1[0]==4)
+                      window.location.href = "http://localhost/appointment/sample?user=leads";
                   
                   
                     });}
@@ -986,13 +988,18 @@ function appointmentfieldsave()
   $(document).ready(function(){
      $.get('scheduleappointment/loaddata',function(data){
          
-       $timearray=data.split("/");
-        $('#datelabel').html($timearray[2]+"-"+$timearray[3]+"-"+$timearray[4]);
-        $('#starttimelabel').html($timearray[0]);
-        $('#dash').html("-");
-        $('#endtimelabel').html($timearray[1]);
-        $('#timeid').val($timearray[5]);
-        
+         
+       var dataarray=data.split(" ");
+       $('#checkboxone').append("Date: ");
+        $('#checkboxtwo').append("Time: ");
+       for(var i=0;i<dataarray.length-1;i++)
+       {
+          var datadatearray=dataarray[i].split("#");
+            $('#checkboxone').append(datadatearray[0]);
+            $('#checkboxone').append("   ");
+            $('#checkboxtwo').append(datadatearray[1]+"<input type='checkbox' id=checkbox"+datadatearray[2]+" name=checkbox"+datadatearray[2]+" value="+datadatearray[2]+">");
+            $('#checkboxone').append("   ");
+       }
      });
   });
   
@@ -1010,7 +1017,7 @@ function appointmentfieldsave()
         
         </script>
         
-        
+<!--    <div style="margin-left: 400px;"><input type="button" value="Staff"/><input type="button" value="Calendar"/><input type="button" value="Leads"/><input type="button" value="Myprofile"/></div>      -->
        
 </head>
         <body>

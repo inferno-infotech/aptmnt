@@ -12,6 +12,9 @@ class Sample extends Controller {
       
       $this->view->render('sample',true);
     }
-    
+   function loaduser()
+    {
+      $this->model->loaduser();  
+    } 
 }
     ?>
