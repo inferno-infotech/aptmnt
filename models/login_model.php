@@ -27,7 +27,8 @@ class Login_model extends Model{
                  $_SESSION['password']=$row['password'];
                  $_SESSION['username']=$row['username'];
                  $_SESSION['Level']=$row['level'];
-                 echo $_SESSION['Level']."/".$_SESSION['username'];
+                 $_SESSION['ID']=$row['id'];
+                 echo $_SESSION['Level']."/".$_SESSION['username']."/".$_SESSION['ID'];
              }
              else
              {

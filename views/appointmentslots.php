@@ -6,7 +6,7 @@
     <form style="font-family: serif" id="formappointmentslots">
     <label>Current Year:</label> <?php echo date("Y");?><br/>
     <label>Current Month:</label> <?php echo date("F");?><br/>
-    <label>Current Week:</label> <?php $current_dayname = date("l");$date = date("d-F-Y",strtotime("$current_dayname this week")).' to '.date("d-F-Y",strtotime('sunday this week'));echo $date ;?><br/>
+    <label>Current Week:</label> <?php $current_dayname = date("l");$current_dayname1=date('Y-m-d', strtotime("$current_dayname +7 days"));$date = date("d-F-Y",strtotime("$current_dayname this week")).' to '.date("d-F-Y",strtotime("$current_dayname1 this week"));echo $date ;?><br/>
      <br/>
      <div id="formappointmentslots01">
      <input type="checkbox" name="Monday" value="Monday" id="moncheck" onclick="boxselect(1);" style="height: 11px;">&nbsp;&nbsp;<label id="mon" >Monday:</label>&nbsp;&nbsp;<label id="start">Start Time:</label>&nbsp;<input id="datetimepicker" name="monstartdate" style="width:109px;height:16px;"  type="text" />&nbsp;&nbsp;<label id="end">End Time:</label>&nbsp;<input id="datetimepicker1" name="monenddate" style="width:109px;height:16px;"  type="text" />&nbsp;<input type="button" style="height: 2px;width:5px; padding-right: 13px; padding-bottom: 13px;" name="addmore" id="monaddmore" value="+" onclick="addingmore(1);"><br/>

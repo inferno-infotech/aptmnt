@@ -330,7 +330,7 @@
                     </div>
             </div>
             
-            <div id="one"> <span style="float: right;" class="description">!Please check appointment slots</span> </div>
+             <div id="one"> <span style="float: right;">!Please check appointment slots</span> </div>
             </div>
       </div>
       <div style="padding:1px;">

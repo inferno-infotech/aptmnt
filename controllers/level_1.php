@@ -41,6 +41,16 @@ class Level_1 extends Controller {
     {
          $this->model->update($id);
     }
+    function listuserlevel3($level3)
+    {
+       $this->model->listuserlevel3($level3); 
+    }
+     function listuserlevel4($level3)
+    {
+       $this->model->listuserlevel4($level3); 
+    }
+    
+    
     
 }
 ?>

@@ -12,15 +12,24 @@ class Level_2 extends Controller {
       
       $this->view->render('level_2');
     }
-    function adduser()
+    function adduser($level)
     {
-      $this->model->adduser();  
+      $this->model->adduser($level);  
     }
      
     function listuser()
     {
       $this->model->listuser();  
     }
+    
+   function listuserlevel2($concat)
+    {
+      $this->model->listuserlevel2($concat);  
+    }
+   function selectlevel4($id)
+   {
+      $this->model->selectlevel4($id);  
+   }
     
    function delete2($id)
     {

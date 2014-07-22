@@ -41,43 +41,56 @@
      var level=""; 
      
   
-     
-     
+   var countstaff=0;  
+   function add_staff_click()
+   {
+       if(countstaff%2==0)
+       {
+        $('#level1login').css('visibility','visible');
+        $('#level1table').css('visibility','hidden');
+    }
+    else
+    {
+        $('#level1login').css('visibility','hidden');
+        $('#level1table').css('visibility','hidden');
+    }
+   countstaff++;
+    }
      
    
- function levelfunction($level)
+ function levelfunction($level,$id)
  {
    level=$level;
-     if($level==2)
-     {
+//     if($level==2)
+//     {
          
         
             $("#level1table").css("visibility", "visible");
             $("#level1table").html(" ");
-     posta="level_1/listuserlevel/"+$level;
+     posta="level_1/listuserlevel/"+$level+" "+$id;
        $(document).ready(function(){
    $.get(posta,function(data){
      $("#level1table").append(data);
    }); 
 });
 
-        }   
+//        }  
         
         
-        if($level==3)
-     {
-         
-        
-            $("#level1table").css("visibility", "visible");
-            $("#level1table").html(" ");
-     posta="level_1/listuserlevel/"+$level;
-       $(document).ready(function(){
-   $.get(posta,function(data){
-     $("#level1table").append(data);
-   }); 
-});
-
-        }   
+//        if($level==3)
+//     {
+//         
+//        
+//            $("#level1table").css("visibility", "visible");
+//            $("#level1table").html(" ");
+//     posta="level_1/listuserlevel/"+$level;
+//       $(document).ready(function(){
+//   $.get(posta,function(data){
+//     $("#level1table").append(data);
+//   }); 
+//});
+//
+//        }   
         
         
         
@@ -89,22 +102,145 @@
     
     
   
+  function Level3inserting($id)
+  {
+    posta="level_1/listuserlevel3/"+$id;  
+    $.get(posta,function(data){
+     $("#level1table").html(data);   
+    });
+  }
+  
+  
+  function Level4inserting($id)
+  {
+    posta="level_1/listuserlevel4/"+$id;  
+    $.get(posta,function(data){
+     $("#level1table").html(data);   
+    });
+  }
+  
     
     
     
+  //level2
+  
+  
+ function leveltwofunction($level,$id)
+ {
+     
+     
+   level=$level;
+   
+     
+         if($level=='3')
+         {
+        
+            $("#level2table").css("visibility", "visible");
+            $("#level2table").html(" ");
+     posta="level_2/listuserlevel2/"+$level+" "+$id;
+     
+       $(document).ready(function(){
+   $.get(posta,function(data){
+     
+    $("#level2table").append(data);
+   }); 
+});
+     
+        }  
+    
+    }
     
     
+function Level2insertin3g($id)
+{
     
+  
     
+  
+        
+            $("#level2table").css("visibility", "visible");
+            $("#level2table").html(" ");
+     posta="level_2/selectlevel4/"+$id;
+       $(document).ready(function(){
+   $.get(posta,function(data){
+      
+   $("#level2table").append(data);
+   }); 
+}); 
     
+
     
+    } 
     
+   var click=0;
+function add_staff_2_click()
+   {
+       if(click%2==0)
+    $("#level2login").css("visibility","visible");
+      else
+    $("#level2login").css("visibility","hidden"); 
+    click++;
+   }   
     
-    
-    
-    
-    
-    
+  
+  function levelthreefunction($id)
+  {
+      $level4='4';
+         $("#level3table").css("visibility", "visible");
+            $("#level3table").html(" ");
+     posta="level_3/listuserlevel3/"+$level4+" "+$id;
+     
+       $(document).ready(function(){
+   $.get(posta,function(data){
+     
+    $("#level3table").append(data);
+   }); 
+});
+      
+  }
+  
+  var click3=0;
+  function add_staff_3_click()
+  {
+    if(click3%2==0)
+    $("#level3login").css("visibility","visible");
+      else
+    $("#level3login").css("visibility","hidden"); 
+    click3++;   
+  }
+  
+  
+  
+  $(document).ready(function(){
+            $("#level2login").submit(function(){
+             $.post('level_2/adduser/'+level, $('#level2login').serialize(), function(data) {
+               $("#level2table").append(data);
+               $("#name2").val("");
+               $("#description2").val("");
+              $("#username2").val("");
+              $("#password2").val("");
+              $("#email2").val("");
+              $("#phonenumber2").val("");
+              $("#inputlevel2").val("3");
+              
+                });
+                        return false;
+                });
+
+            });
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
     
     
     $(document).ready(function(){
@@ -123,15 +259,15 @@
             {
                $.post('login/userpassword', $('#login').serialize(), function(data) {
                  data1=data.split("/");
-                  alert(data1[0]);
+//                  alert(data1[0]);
                   if(data1[0]==1)
-                      window.location.href = "http://localhost/appointment/level_1?username="+data1[1];
+                      window.location.href = "http://localhost/appointment/level_1?username="+data1[1]+"& id="+data1[2];
                   if(data1[0]==2)
-                      window.location.href = "http://localhost/appointment/level_2";
+                      window.location.href = "http://localhost/appointment/level_2?username="+data1[1]+"& userid="+data1[2];
                   if(data1[0]==3)
-                      window.location.href = "http://localhost/appointment/level_3";
+                      window.location.href = "http://localhost/appointment/level_3?username="+data1[1]+"& userid="+data1[2];
                   if(data1[0]==4)
-                      window.location.href = "http://localhost/appointment/sample?user=leads";
+                      window.location.href = "http://localhost/appointment/sample?user=leads,id="+data1[2];
                   
                   
                     });}
@@ -271,23 +407,7 @@ function updatesecond($id)
 });
  
  
- $(document).ready(function(){
-            $("#level2login").submit(function(){
-             $.post('level_2/adduser', $('#level2login').serialize(), function(data) {
-               $("#level2table").append(data);
-               $("#name2").val("");
-               $("#description2").val("");
-              $("#username2").val("");
-              $("#password2").val("");
-              $("#email2").val("");
-              $("#phonenumber2").val("");
-              $("#inputlevel2").val("3");
-              
-                });
-                        return false;
-                });
-
-            });
+ 
             
  
  

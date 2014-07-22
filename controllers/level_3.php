@@ -22,6 +22,13 @@ class Level_3 extends Controller {
       $this->model->listuser();  
     }
     
+    function listuserlevel3($concat)
+    {
+      $this->model->listuserlevel3($concat);  
+    }
+    
+    
+    
    function delete3($id)
     {
       $this->model->delete3($id);  
