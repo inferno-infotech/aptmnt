@@ -2,6 +2,7 @@
 include_once("dbconfig.php");
 include_once("functions.php");
 
+
 function addCalendar($st, $et, $sub, $ade){
   $ret = array();
   try{
@@ -58,7 +59,7 @@ function addDetailedCalendar($st, $et, $sub, $ade, $dscr, $loc, $color, $tz){
   return $ret;
 }
 
-function listCalendarByRange($sd, $ed){
+function listCalendarByRange($sd, $ed, $id){
   $ret = array();
   $ret['events'] = array();
   $ret["issort"] =true;
@@ -68,7 +69,7 @@ function listCalendarByRange($sd, $ed){
   try{
     $db = new DBConnection();
     $db->getConnection();
-    $sql = "select * from `jqcalendar` where `starttime` between '"
+    $sql = "select * from `jqcalendar` where `createappointmentid`='".$id."' and `starttime` between '"
       .php2MySqlTime($sd)."' and '". php2MySqlTime($ed)."' ORDER BY starttime ASC";
     $handle = mysql_query($sql);
     //echo $sql;
@@ -100,7 +101,9 @@ function listCalendarByRange($sd, $ed){
   return $ret;
 }
 
-function listCalendar($day, $type){
+function listCalendar($day, $type, $id){
+    
+   
   $phpTime = js2PhpTime($day);
   //echo $phpTime . "+" . $type;
   switch($type){
@@ -121,7 +124,7 @@ function listCalendar($day, $type){
       break;
   }
   //echo $st . "--" . $et;
-  return listCalendarByRange($st, $et);
+  return listCalendarByRange($st, $et, $id);
 }
 
 function updateCalendar($id, $st, $et){
@@ -202,12 +205,15 @@ function removeCalendar($id){
 
 header('Content-type:text/javascript;charset=UTF-8');
 $method = $_GET["method"];
+$methodarray=  split(" ", $method);
+$method=$methodarray[0];
+$fetch=$methodarray[1];
 switch ($method) {
     case "add":
         $ret = addCalendar($_POST["CalendarStartTime"], $_POST["CalendarEndTime"], $_POST["CalendarTitle"], $_POST["IsAllDayEvent"]);
         break;
     case "list":
-        $ret = listCalendar($_POST["showdate"], $_POST["viewtype"]);
+        $ret = listCalendar($_POST["showdate"], $_POST["viewtype"],$fetch);
         break;
     case "update":
         $ret = updateCalendar($_POST["calendarId"], $_POST["CalendarStartTime"], $_POST["CalendarEndTime"]);

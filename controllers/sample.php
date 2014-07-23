@@ -16,5 +16,7 @@ class Sample extends Controller {
     {
       $this->model->loaduser();  
     } 
+    
+
 }
     ?>

@@ -8,7 +8,7 @@
 
 		var val = inst.input.val();
 
-		if (inst.input.hasClass("datetimepicker") == false) return;
+		if (inst.input.hasClass("datetimepicker") === false) return;
 
 		var bottomLayer = $(".ui-datepicker").append("<div class='.datetimepicker' />");
 		bottomLayer.append(html1);

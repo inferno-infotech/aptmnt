@@ -1133,7 +1133,25 @@ function appointmentfieldsave()
          });
       }
         
-        
+      
+      
+      
+ function findemailandid()
+ {
+     $.post('find/findemailandid',$('#findemailandidform').serialize(),function(data){
+      if(data=='')
+          alert('user did not exist!');
+        if(data!='')
+       alert('user exist !');     
+       window.sessionStorage['id']=data;
+     });
+     
+     
+ }
+ 
+
+      
+      
         
         </script>
         

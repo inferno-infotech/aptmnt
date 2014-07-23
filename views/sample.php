@@ -1,6 +1,6 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml">
-
+ 
    
     <head id="Head1">
     <title>	My Calendar </title>
@@ -38,31 +38,39 @@
     
     
     var val=0;
-        $(document).ready(function() {  
-       
-       
-       
-    $user="<?php echo $_GET['user'];?>";
       
     
-    if($user=="leads")
-       {
-        var url="scheduleappointment";
-        $("#one").show();
-               
-        $.get('sample/loaduser',function(data){
-              
-           });
-       }
-       else
-       {
-        url="appointmentslots";   
-        $("#one").hide();
-       }
+    
+    
+    $(document).ready(function() {  
+       
+       
+//   $user="<?php echo $_POST['user'];?>";
+      
+    
+//    if($user=="leads")
+//       {
+//        var url="scheduleappointment";
+//        $("#one").show();
+//               
+//        $.get('sample/loaduser',function(data){
+//              
+//           });
+//       }
+//       else
+//       {
+//        url="appointmentslots";   
+//        $("#one").hide();
+//       }
        
        
         
-           var view="week";          
+//           var view="week"; 
+
+              var temperoryvalue="<?php echo $_GET['id'];?>";
+              
+
+             var view="month";
            
             var DATA_FEED_URL = "php/datafeed.php";
             var op = {
@@ -77,7 +85,7 @@
                 onAfterRequestData: cal_afterrequest,
                 onRequestDataError: cal_onerror, 
                 autoload:true,
-                url: DATA_FEED_URL + "?method=list",  
+                url: DATA_FEED_URL + "?method=list "+temperoryvalue,  
                 quickAddUrl: DATA_FEED_URL + "?method=add", 
                 quickUpdateUrl: DATA_FEED_URL + "?method=update",
                 quickDeleteUrl: DATA_FEED_URL + "?method=remove"        
@@ -87,8 +95,9 @@
             var dvH = $dv.height() + 2;
             op.height = _MH - dvH;
             op.eventItems =[];
-
+ 
             var p = $("#gridcontainer").bcalendar(op).BcalGetOp();
+            
             if (p && p.datestrshow) {
                 $("#txtdatetimeshow").text(p.datestrshow);
             }
@@ -135,6 +144,7 @@
                 }              
                
             }
+            
             function cal_onerror(type,data)
             {
                 $("#errorpannel").show();
@@ -174,6 +184,7 @@
                     $(this).removeClass("fcurrent");
                 })
                 $("#showdaybtn").addClass("fcurrent");
+                 
             }
             //to show day view
             $("#showdaybtn").click(function(e) {
@@ -271,6 +282,102 @@
        
         }
 });
+
+
+
+
+var url1="find";
+var counturl=0;
+function findidandemail()
+{
+    counturl++;
+    if (counturl==1)
+    {
+      $("#slide").slideUp("slow");
+      OpenModelWindow(url1,{ width: screen.availWidth-300, height: screen.availHeight, caption: ""});
+           
+    }
+    counturl++;
+}
+
+var counttt=0;
+$(document).click(function(){
+       
+        if(url1="find")
+        {
+      if(counttt%2==0)
+      {
+      
+  }
+      if(counttt%2!=0){
+       
+            
+            data1=window.sessionStorage['id'];
+           if(data1!=""){
+                window.location.href = "http://localhost/appointment/sample?id="+data1;
+                temperoryvalue=data1;
+              }
+            }
+       counttt++;
+            if(counturl>1)
+     { $("#slide").slideDown("slow");
+         
+        
+         
+      counturl=0;
+  }
+  
+  
+  
+  
+  
+       
+        }
+});
+
+
+
+    
+
+
+var url2="login";
+var counturl=0;
+function loginidandemail()
+{
+    counturl++;
+    if (counturl==1)
+    {
+      $("#slide").slideUp("slow");
+      OpenModelWindow(url2,{ width: screen.availWidth-300, height: screen.availHeight, caption: ""});
+         
+    }
+    
+    counturl++;
+}
+
+
+$(document).click(function(){
+       
+        if(url2="login")
+        {
+      $("#gridcontainer").reload();
+            if(counturl>1)
+     { $("#slide").slideDown("slow");
+      counturl=0;
+  }
+       
+        }
+});
+
+
+    
+      
+    
+
+
+
+
+
        
         
         
@@ -279,14 +386,28 @@
 </head>
 <body>
     <div id="slide">
+        
 
       <div id="calhead" style="padding-left:1px;padding-right:1px;">          
             <div class="cHead"><div class="ftitle">My Calendar</div>
             <div id="loadingpannel" class="ptogtitle loadicon" style="display: none;">Loading data...</div>
              <div id="errorpannel" class="ptogtitle loaderror" style="display: none;">Sorry, could not load your data, please try again later</div>
             </div>          
-            
-            <div id="caltoolbar" class="ctoolbar">
+           
+          
+          <div class="wrapper" style="width: 200px; overflow: hidden;white-space: nowrap;">
+    <div class="inline" style="display: inline-block;"><input type="button" value="Find" id="findbuttonin" name="findbuttonin" onclick="findidandemail();"></div>
+    <div class="inline" style="display: inline-block;"><input type="button" value="Login" id="loginbuttonin" name="loginbuttonin" onclick="loginidandemail();"></div>
+    
+     </div>
+         
+                 
+                
+                
+                
+                
+                <div id="Calendarmaintoolbar" style="display: none;">
+                    <div id="caltoolbar" class="ctoolbar">
               <div id="faddbtn" class="fbutton">
                 <div><span title='Click to Create New Event' class="addcal">
 
@@ -332,7 +453,16 @@
             
              <div id="one"> <span style="float: right;">!Please check appointment slots</span> </div>
             </div>
+                
+             
+                
+              
+                
+                
+                
+                
       </div>
+          </div>
       <div style="padding:1px;">
 
         <div class="t1 chromeColor">

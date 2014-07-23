@@ -11,9 +11,16 @@ class Redirect {
         $url = explode('/', $url);
         //print_r($url);
         if (empty($url[0])) {
-            require 'controllers/login.php';
-            $controller = new Login();
-            $controller->index();
+//            require 'controllers/login.php';
+//            $controller = new Login();
+//            $controller->index();
+            
+            
+            require 'controllers/sample.php';
+            $controller=new Sample();
+             $controller->index();
+            
+            
             return FALSE;
         }
        
