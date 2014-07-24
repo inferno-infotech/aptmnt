@@ -1133,7 +1133,18 @@ function appointmentfieldsave()
          });
       }
         
-      
+   function findidandpassword()
+{
+    $.post('loginstaff/userpassword',$('#loginstaffform').serialize(),function(data){
+       if(data=='')
+           alert('user did not exist!');
+       if(data!='')
+       {
+           alert('user exist!');
+           window.sessionStorage['id1']=data;
+       }
+    });
+}   
       
       
  function findemailandid()
@@ -1142,8 +1153,8 @@ function appointmentfieldsave()
       if(data=='')
           alert('user did not exist!');
         if(data!='')
-       alert('user exist !');     
-       window.sessionStorage['id']=data;
+        {alert('user exist!');     
+       window.sessionStorage['id']=data;}
      });
      
      

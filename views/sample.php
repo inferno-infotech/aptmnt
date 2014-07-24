@@ -1,6 +1,6 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml">
- 
+
    
     <head id="Head1">
     <title>	My Calendar </title>
@@ -303,7 +303,7 @@ function findidandemail()
 var counttt=0;
 $(document).click(function(){
        
-        if(url1="find")
+        if(url1=="find")
         {
       if(counttt%2==0)
       {
@@ -313,9 +313,10 @@ $(document).click(function(){
        
             
             data1=window.sessionStorage['id'];
+            delete window.sessionStorage['id'];
            if(data1!=""){
                 window.location.href = "http://localhost/appointment/sample?id="+data1;
-                temperoryvalue=data1;
+                
               }
             }
        counttt++;
@@ -339,32 +340,56 @@ $(document).click(function(){
 
     
 
-
-var url2="login";
-var counturl=0;
+var selection=0;
+var url2="loginstaff";
+var counturl1=0;
 function loginidandemail()
 {
-    counturl++;
-    if (counturl==1)
+   selection++;
+        counturl1++;
+    if (counturl1==1)
     {
       $("#slide").slideUp("slow");
       OpenModelWindow(url2,{ width: screen.availWidth-300, height: screen.availHeight, caption: ""});
          
     }
     
-    counturl++;
+    counturl1++;
 }
 
 
+var counttt1=0;
 $(document).click(function(){
        
-        if(url2="login")
+        if(url2=="loginstaff")
         {
-      $("#gridcontainer").reload();
-            if(counturl>1)
-     { $("#slide").slideDown("slow");
-      counturl=0;
+      if(counttt1%2==0)
+      {
+      
   }
+      if(counttt1%2!=0){
+       
+            
+            data2=window.sessionStorage['id1'];
+            delete window.sessionStorage['id1'];
+           if(data2!="" && selection>0){
+                window.location.href = "http://localhost/appointment/sample?id="+data2;
+               
+              }
+            }
+       counttt1++;
+            if(counturl1>1)
+     { $("#slide").slideDown("slow");
+         
+        
+         
+      counturl1=0;
+  }
+  
+  
+  
+  
+  
        
         }
 });
