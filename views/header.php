@@ -1160,6 +1160,31 @@ function appointmentfieldsave()
      
  }
  
+ 
+function level4confirmbutton()
+{
+    var i=0;
+    if(i==0){
+   $.post('levelfourack/updatelevelfouruser',$('#level4loginack').serialize(),function(data){
+      alert(data);
+       window.location.href=window.sessionStorage['location'];
+       delete window.sessionStorage['location'];
+   });
+   
+   }
+       
+       
+       
+}
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
 
       
       

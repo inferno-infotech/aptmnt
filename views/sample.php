@@ -33,7 +33,7 @@
    
     
     
-    
+   
     
     
     
@@ -106,6 +106,7 @@
             $("#hdtxtshow").datepicker({ picker: "#txtdatetimeshow", showtarget: $("#txtdatetimeshow"),
             onReturn:function(r){                          
                             var p = $("#gridcontainer").gotoDate(r).BcalGetOp();
+                            
                             if (p && p.datestrshow) {
                                 $("#txtdatetimeshow").text(p.datestrshow);
                             }
@@ -193,9 +194,13 @@
                     $(this).removeClass("fcurrent");
                 })
                 $(this).addClass("fcurrent");
+                
                 var p = $("#gridcontainer").swtichView("day").BcalGetOp();
+                alert(p.datestrshow);
                 if (p && p.datestrshow) {
                     $("#txtdatetimeshow").text(p.datestrshow);
+                    
+                    
                 }
             });
             //to show week view
@@ -219,6 +224,7 @@
                 })
                 $(this).addClass("fcurrent");
                 var p = $("#gridcontainer").swtichView("month").BcalGetOp();
+               
                 if (p && p.datestrshow) {
                     $("#txtdatetimeshow").text(p.datestrshow);
                 }
@@ -395,9 +401,18 @@ $(document).click(function(){
 });
 
 
+function Level4Create()
+{
+
+window.sessionStorage['location']=window.location;
+window.location.href = "http://localhost/appointment/levelfourack";    
     
+}
       
-    
+function Monthview()
+{
+window.location.href=window.location;  
+}
 
 
 
@@ -419,15 +434,15 @@ $(document).click(function(){
              <div id="errorpannel" class="ptogtitle loaderror" style="display: none;">Sorry, could not load your data, please try again later</div>
             </div>          
            
-          
-          <div class="wrapper" style="width: 200px; overflow: hidden;white-space: nowrap;">
+           
+          <div class="wrapper" style="width: 500px; overflow: hidden;white-space: nowrap;">
     <div class="inline" style="display: inline-block;"><input type="button" value="Find" id="findbuttonin" name="findbuttonin" onclick="findidandemail();"></div>
     <div class="inline" style="display: inline-block;"><input type="button" value="Login" id="loginbuttonin" name="loginbuttonin" onclick="loginidandemail();"></div>
-    
-     </div>
+    <div class="inline" style="display: inline-block;"><input type="button" value="Level4Account" id="Level4button" name="Level4button" onclick="Level4Create();"></div>
+    <div class="inline" style="display: inline-block;"><input type="button" value="Refresh View" id="Monthviewbutton" name="Monthviewbutton" onclick="Monthview();"></div>
+    </div>
          
-                 
-                
+            
                 
                 
                 
