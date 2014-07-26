@@ -381,6 +381,7 @@ $(document).click(function(){
            if(data2!="" && selection>0){
                 window.location.href = "http://localhost/appointment/sample?id="+data2;
                
+               
               }
             }
        counttt1++;
@@ -415,6 +416,19 @@ window.location.href=window.location;
 }
 
 
+$(document).ready(function(){
+    
+if(("<?php echo $_GET['id'];?>")!='')
+{
+    $("#wrapperid").append("<div class='inline' style='display: inline-block;'><input type='button' value='Add/Request Appointment' id='addreqbutton' name='addreqbutton' onclick=addrequestfunction();></div>");
+}
+});
+   
+function addrequestfunction()
+{
+    alert(1);
+}
+
 
 
 
@@ -435,11 +449,12 @@ window.location.href=window.location;
             </div>          
            
            
-          <div class="wrapper" style="width: 500px; overflow: hidden;white-space: nowrap;">
+          <div class="wrapper" id="wrapperid" style="width: 500px; overflow: hidden;white-space: nowrap;">
     <div class="inline" style="display: inline-block;"><input type="button" value="Find" id="findbuttonin" name="findbuttonin" onclick="findidandemail();"></div>
     <div class="inline" style="display: inline-block;"><input type="button" value="Login" id="loginbuttonin" name="loginbuttonin" onclick="loginidandemail();"></div>
     <div class="inline" style="display: inline-block;"><input type="button" value="Level4Account" id="Level4button" name="Level4button" onclick="Level4Create();"></div>
     <div class="inline" style="display: inline-block;"><input type="button" value="Refresh View" id="Monthviewbutton" name="Monthviewbutton" onclick="Monthview();"></div>
+  
     </div>
          
             
