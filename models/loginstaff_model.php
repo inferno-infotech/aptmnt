@@ -18,7 +18,8 @@ class Loginstaff_model extends Model{
         {
         while ($row = mysql_fetch_array($result, MYSQL_ASSOC)) {
     
-             echo $row['id'];
+             echo $row['id']." ".$row['name'];
+             
              
             }
             

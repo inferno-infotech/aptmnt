@@ -1141,6 +1141,7 @@ function appointmentfieldsave()
        if(data!='')
        {
            alert('user exist!');
+        
            window.sessionStorage['id1']=data;
        }
     });

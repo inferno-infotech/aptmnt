@@ -896,13 +896,14 @@
 
                 for (var i = 0; i < 7; i++) {
                     var day = C[j * 7 + i];
-                    htb.push("<td abbr='", dateFormat.call(day, i18n.xgcalendar.dateformat.fulldayvalue), "' ch='qkadd' axis='00:00' title=''");
+                    htb.push("<td abbr='", dateFormat.call(day, i18n.xgcalendar.dateformat.fulldayvalue), "'  ch='qkadd' axis='00:00' title=''");
 
                     if (dateFormat.call(day, "yyyyMMdd") == dateFormat.call(new Date(), "yyyyMMdd")) {
                         htb.push(" class=\"st-bg st-bg-today\">");
                     }
                     else {
-                        htb.push(" class=\"st-bg\">");
+                        $asif=dateFormat.call(day, i18n.xgcalendar.dateformat.fulldayvalue);
+                        htb.push("class=\"st-bg st-bg-"+$asif+"\">");
                     }
                     htb.push("&nbsp;</td>");
                 }

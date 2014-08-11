@@ -1,3 +1,51 @@
+<?php
+$startdate=date('01-m-Y');
+$enddate=date('t-m-Y');
+
+$numberofdate=$enddate-$startdate+1;
+$numberofweeks=$numberofdate/7;
+echo $startdate;
+echo $enddate;
+echo $numberofdate;
+$intnumberofweeks=intval($numberofweeks);
+$date = new DateTime($startdate);
+$week = $date->format("W");
+//$monday=new DateTime('monday');
+for($count=1;$count<=$intnumberofweeks;$count++)
+{
+    echo $week;
+    $week++;
+}
+
+
+function weekdayAfter($date,$day){
+return date('d-m-Y',strtotime($day, strtotime($date)));
+}
+
+
+$tomorrow=weekdayAfter($startdate, "Friday");
+$lastmonday=weekdayAfter($enddate,"last "."Friday");
+
+
+
+$diffweek=($lastmonday-$tomorrow)/7;
+$weeknum=$diffweek;
+$count=0;
+while($count<=$weeknum)
+{
+$date1 = str_replace('-', '/', $tomorrow);
+echo $tomorrow;
+$tomorrow = date('d-m-Y',strtotime($tomorrow . "+7 days"));
+
+$monday=$tomorrow;
+$count++;
+}
+
+?>
+
+
+
+
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml">
 
@@ -376,10 +424,13 @@ $(document).click(function(){
       if(counttt1%2!=0){
        
             
-            data2=window.sessionStorage['id1'];
+            data2sess=window.sessionStorage['id1'];
+            data2temp=data2sess.split(" ");
+            data2=data2temp[0];
+            data3=data2temp[1];
             delete window.sessionStorage['id1'];
            if(data2!="" && selection>0){
-                window.location.href = "http://localhost/appointment/sample?id="+data2;
+                window.location.href = "http://localhost/appointment/sample?id="+data2+"&username="+data3;
                
                
               }
@@ -418,15 +469,23 @@ window.location.href=window.location;
 
 $(document).ready(function(){
     
-if(("<?php echo $_GET['id'];?>")!='')
+if(("<?php echo $_GET['id'];?>")!='' && ("<?php echo $_GET['id'];?>")!='undefined')
 {
     $("#wrapperid").append("<div class='inline' style='display: inline-block;'><input type='button' value='Add/Request Appointment' id='addreqbutton' name='addreqbutton' onclick=addrequestfunction();></div>");
-}
+
+$("#parentwrapper").append("welcome  "+"<?php echo $_GET['username'];?>");
+$("#parentwrapper").append("<div class='wrapper' id='wrapperid1' style='width: 500px; overflow: hidden;white-space: nowrap;'><div class='inline' style='display: inline-block;'><input type='button' value='Calendar' id='calendarbutton' name='calendarbutton' onclick='calendarclick();'></div><div class='inline' style='display: inline-block;'><input type='button' value='Leads' id='leadsbutton' name='leadsbutton' onclick='leadsclick();'></div><div class='inline' style='display: inline-block;'><input type='button' value='Myprofile' id='myprofilebutton' name='myprofilebutton' onclick='myprofilebuttonclick();'></div><div class='inline' style='display: inline-block;'><input type='button' value='Open Slots' id='myprofilebutton' name='openslotsbutton' onclick='openslotsbuttonclick();'></div><div class='inline' style='display: inline-block;'><input type='button' value='Logout' id='logoutbutton' name='logoutbutton' onclick='logoutbuttonclick();'></div></div>");
+
+}   
 });
    
 function addrequestfunction()
 {
     alert(1);
+}
+function openslotsbuttonclick()
+{
+    window.location.href="http://localhost/appointment/appointmentslots";
 }
 
 
@@ -448,7 +507,7 @@ function addrequestfunction()
              <div id="errorpannel" class="ptogtitle loaderror" style="display: none;">Sorry, could not load your data, please try again later</div>
             </div>          
            
-           
+          <div id="parentwrapper"> 
           <div class="wrapper" id="wrapperid" style="width: 500px; overflow: hidden;white-space: nowrap;">
     <div class="inline" style="display: inline-block;"><input type="button" value="Find" id="findbuttonin" name="findbuttonin" onclick="findidandemail();"></div>
     <div class="inline" style="display: inline-block;"><input type="button" value="Login" id="loginbuttonin" name="loginbuttonin" onclick="loginidandemail();"></div>
@@ -456,7 +515,7 @@ function addrequestfunction()
     <div class="inline" style="display: inline-block;"><input type="button" value="Refresh View" id="Monthviewbutton" name="Monthviewbutton" onclick="Monthview();"></div>
   
     </div>
-         
+         </div>
             
                 
                 
